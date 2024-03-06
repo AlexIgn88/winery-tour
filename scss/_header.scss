@@ -1,0 +1,27 @@
+@import '_vars';
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px 80px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: $header-color;
+
+    &__nav {
+        width: 80%;
+    }
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+
+    &__list {
+        list-style: none;
+        display: flex;
+        justify-content: space-evenly;
+        flex-grow: 1;
+    }
+}
