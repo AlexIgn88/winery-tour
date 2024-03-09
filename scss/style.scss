@@ -1,15 +1,11 @@
 @import '_reset';
 @import '_header';
 @import '_vars';
+@import '_hero';
 
-// @mixin first {}
 
 body {
     background-color: $background-color;
     color: $body-font-color;
     font-family: sans-serif;
 }
-
-// div {
-//     @include first;
-// }

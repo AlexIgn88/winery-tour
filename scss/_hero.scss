@@ -1,0 +1,68 @@
+@import '_vars';
+@import '_mixins';
+
+.hero-section {
+    height: 100vh;
+    margin: 0px 80px 0px;
+
+    &__content {
+        margin-top: 50px;
+        display: flex;
+        align-items: center;
+        gap: 5vw;
+        height: 70%;
+
+        .hero-section__text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 40px;
+            height: 100%;
+            width: 50%;
+
+            h1 {
+                font-size: 48px;
+            }
+
+            p {
+                font-size: 20px;
+            }
+        }
+
+        .hero-section__picture-container {
+            height: 100%;
+            width: 50%;
+            background-image: url('/img/hero-section/hero-section__picture-wine.jpg');
+            background-repeat: no-repeat;
+            border-radius: 10%;
+            height: 100%;
+            object-position: center center;
+            background-size: cover;
+        }
+    }
+
+    &__buttons {
+        margin-top: 50px;
+        height: 30%;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+
+        .hero-section__button {
+            position: fixed;
+            left: 80px;
+            bottom: 10px;
+            width: 180px;
+            height: 70px;
+            @include button-styling;
+        }
+
+        .hero-section__button:hover {
+            @include button-styling-hover;
+        }
+
+        .hero-section__button:active {
+            @include button-styling-active;
+        }
+    }
+}

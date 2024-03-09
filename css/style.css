@@ -14,10 +14,10 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 0px 50px;
+  margin: 0px 80px;
   padding: 10px 20px 0px;
-  background-color: rgb(34, 34, 34);
-  border-radius: 5px;
+  background-color: rgb(30, 17, 9);
+  border-radius: 15px;
 }
 .header__nav {
   width: 100%;
@@ -44,15 +44,25 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 80%;
+  width: 90%;
   font-size: 14px;
+  font-weight: bold;
+  color: white;
+}
+.nav__list li {
+  cursor: pointer;
+}
+.nav__list li:hover {
+  color: rgb(175, 119, 36);
+  -webkit-transition: color 0.5s ease;
+  transition: color 0.5s ease;
 }
 .nav__logo {
-  width: 200px;
+  width: 100px;
   height: 70px;
 }
 .nav__logo .nav__logo-img {
-  background-image: url("/img/GEREY-TYZ-LOGO.jpg");
+  background-image: url("/img/winery-logo.jpg");
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
@@ -61,8 +71,91 @@
   background-size: contain;
 }
 
+.hero-section {
+  height: 100vh;
+  margin: 0px 80px 0px;
+}
+.hero-section__content {
+  margin-top: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5vw;
+  height: 70%;
+}
+.hero-section__content .hero-section__text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 40px;
+  height: 100%;
+  width: 50%;
+}
+.hero-section__content .hero-section__text h1 {
+  font-size: 48px;
+}
+.hero-section__content .hero-section__text p {
+  font-size: 20px;
+}
+.hero-section__content .hero-section__picture-container {
+  height: 100%;
+  width: 50%;
+  background-image: url("/img/hero-section/hero-section__picture-wine.jpg");
+  background-repeat: no-repeat;
+  border-radius: 10%;
+  height: 100%;
+  -o-object-position: center center;
+     object-position: center center;
+  background-size: cover;
+}
+.hero-section__buttons {
+  margin-top: 50px;
+  height: 30%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.hero-section__buttons .hero-section__button {
+  position: fixed;
+  left: 80px;
+  bottom: 10px;
+  width: 180px;
+  height: 70px;
+  font-size: 18px;
+  color: white;
+  background-color: rgb(30, 17, 9);
+  border: 1px solid rgb(30, 17, 9);
+  border-radius: 16px;
+  -webkit-box-shadow: 5px 5px 5px #000;
+          box-shadow: 5px 5px 5px #000;
+  cursor: pointer;
+}
+.hero-section__buttons .hero-section__button:hover {
+  background-color: rgb(21, 12, 6);
+}
+.hero-section__buttons .hero-section__button:active {
+  background-color: rgb(15, 8, 2);
+}
+
 body {
-  background-color: black;
+  background-color: #5E2129;
   color: white;
   font-family: sans-serif;
 }

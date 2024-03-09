@@ -1,0 +1,19 @@
+@import '_vars';
+
+@mixin button-styling {
+    font-size: 18px;
+    color: white;
+    background-color: $button-background-color;
+    border: 1px solid $button-background-color;
+    border-radius: 16px;
+    box-shadow: 5px 5px 5px #000;
+    cursor: pointer;
+}
+
+@mixin button-styling-hover {
+    background-color: $button-hover-background-color;
+}
+
+@mixin button-styling-active {
+    background-color: $button-active-background-color;
+}
