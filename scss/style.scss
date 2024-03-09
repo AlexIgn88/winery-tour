@@ -1,11 +1,14 @@
 @import '_reset';
-@import '_header';
 @import '_vars';
+@import '_header';
 @import '_hero';
+@import '_about';
+@import '_excursions';
+@import '_footer';
 
 
 body {
-    background-color: $background-color;
+    // background-color: $background-color;
     color: $body-font-color;
     font-family: sans-serif;
 }

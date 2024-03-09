@@ -1,0 +1,31 @@
+@import '_vars';
+@import '_mixins';
+
+.about-section {
+    height: 150vh;
+    background-color: $background-color;
+
+    &__content {
+        display: flex;
+        // align-items: center;
+        gap: 5vw;
+        height: 70%;
+
+        .about-section__text {
+            @include section-content;
+        }
+
+        .about-section__picture-container {
+            margin-top: 100px;
+            margin-right: 50px;
+            height: 100%;
+            width: 50%;
+            background-image: url('/img/about-section/sun-scents.jpg');
+            background-repeat: no-repeat;
+            border-radius: 15px;
+            height: 100%;
+            object-position: center center;
+            background-size: cover;
+        }
+    }
+}

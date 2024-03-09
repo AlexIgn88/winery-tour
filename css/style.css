@@ -14,10 +14,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 0px 80px;
   padding: 10px 20px 0px;
   background-color: rgb(30, 17, 9);
-  border-radius: 15px;
 }
 .header__nav {
   width: 100%;
@@ -49,10 +47,12 @@
   font-weight: bold;
   color: white;
 }
-.nav__list li {
+.nav__list .nav__link {
   cursor: pointer;
+  text-decoration: none;
+  color: white;
 }
-.nav__list li:hover {
+.nav__list .nav__link:hover {
   color: rgb(175, 119, 36);
   -webkit-transition: color 0.5s ease;
   transition: color 0.5s ease;
@@ -60,6 +60,7 @@
 .nav__logo {
   width: 100px;
   height: 70px;
+  margin-left: 20px;
 }
 .nav__logo .nav__logo-img {
   background-image: url("/img/winery-logo.jpg");
@@ -73,10 +74,13 @@
 
 .hero-section {
   height: 100vh;
-  margin: 0px 80px 0px;
+  background-image: url("/img/hero-section/winery.jpg");
+  background-repeat: no-repeat;
+  -o-object-position: center center;
+     object-position: center center;
+  background-size: cover;
 }
 .hero-section__content {
-  margin-top: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -87,6 +91,11 @@
   height: 70%;
 }
 .hero-section__content .hero-section__text {
+  background-color: rgba(30, 17, 9, 0.7);
+  border-radius: 15px;
+  padding: 30px;
+  margin-top: 100px;
+  margin-left: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -103,20 +112,11 @@
 }
 .hero-section__content .hero-section__text h1 {
   font-size: 48px;
+  text-align: center;
 }
 .hero-section__content .hero-section__text p {
   font-size: 20px;
-}
-.hero-section__content .hero-section__picture-container {
-  height: 100%;
-  width: 50%;
-  background-image: url("/img/hero-section/hero-section__picture-wine.jpg");
-  background-repeat: no-repeat;
-  border-radius: 10%;
-  height: 100%;
-  -o-object-position: center center;
-     object-position: center center;
-  background-size: cover;
+  line-height: 1.5;
 }
 .hero-section__buttons {
   margin-top: 50px;
@@ -132,9 +132,9 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-.hero-section__buttons .hero-section__button {
+.hero-section__buttons #reserve {
   position: fixed;
-  left: 80px;
+  left: 50px;
   bottom: 10px;
   width: 180px;
   height: 70px;
@@ -147,15 +147,202 @@
           box-shadow: 5px 5px 5px #000;
   cursor: pointer;
 }
-.hero-section__buttons .hero-section__button:hover {
+.hero-section__buttons #reserve:hover {
   background-color: rgb(21, 12, 6);
 }
-.hero-section__buttons .hero-section__button:active {
+.hero-section__buttons #reserve:active {
+  background-color: rgb(15, 8, 2);
+}
+.hero-section__buttons #up-arrow-button {
+  position: fixed;
+  right: 50px;
+  bottom: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 18px;
+  color: white;
+  background-color: rgb(30, 17, 9);
+  border: 1px solid rgb(30, 17, 9);
+  border-radius: 16px;
+  -webkit-box-shadow: 5px 5px 5px #000;
+          box-shadow: 5px 5px 5px #000;
+  cursor: pointer;
+}
+.hero-section__buttons #up-arrow-button:hover {
+  background-color: rgb(21, 12, 6);
+}
+.hero-section__buttons #up-arrow-button:active {
   background-color: rgb(15, 8, 2);
 }
 
-body {
+.about-section {
+  height: 150vh;
   background-color: #5E2129;
+}
+.about-section__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 5vw;
+  height: 70%;
+}
+.about-section__content .about-section__text {
+  margin-top: 100px;
+  margin-left: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 40px;
+  height: 100%;
+  width: 50%;
+}
+.about-section__content .about-section__text h1 {
+  font-size: 48px;
+  text-align: center;
+}
+.about-section__content .about-section__text p {
+  font-size: 20px;
+  line-height: 1.5;
+}
+.about-section__content .about-section__picture-container {
+  margin-top: 100px;
+  margin-right: 50px;
+  height: 100%;
+  width: 50%;
+  background-image: url("/img/about-section/sun-scents.jpg");
+  background-repeat: no-repeat;
+  border-radius: 15px;
+  height: 100%;
+  -o-object-position: center center;
+     object-position: center center;
+  background-size: cover;
+}
+
+.excursions-section {
+  height: 100vh;
+  background-color: #5E2129;
+}
+.excursions-section__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5vw;
+  height: 70%;
+}
+.excursions-section__content .excursions-section__text {
+  margin-top: 100px;
+  margin-left: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 40px;
+  height: 100%;
+  width: 50%;
+}
+.excursions-section__content .excursions-section__text h1 {
+  font-size: 48px;
+  text-align: center;
+}
+.excursions-section__content .excursions-section__text p {
+  font-size: 20px;
+  line-height: 1.5;
+}
+.excursions-section__content .excursions-section__picture-container {
+  margin-top: 100px;
+  margin-right: 50px;
+  height: 100%;
+  width: 50%;
+  background-image: url("/img/excursions-section/wine-barrel.jpg");
+  background-repeat: no-repeat;
+  border-radius: 15px;
+  height: 100%;
+  -o-object-position: center center;
+     object-position: center center;
+  background-size: cover;
+}
+
+#footer {
+  background-color: #272727;
+  color: #ffffff;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.footer__navigation,
+.footer__contact,
+.footer__social {
+  margin: 10px;
+}
+
+.footer__navigation h3,
+.footer__contact h3,
+.footer__social h3 {
+  color: #f0f0f0;
+  margin-bottom: 15px;
+}
+
+.footer__navigation ul,
+.footer__social .social-icons {
+  list-style: none;
+  padding: 0;
+}
+
+.footer__navigation ul li,
+.social__icon {
+  margin-bottom: 10px;
+}
+
+.footer__navigation ul li a,
+.social__icon {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.social__icon {
+  display: inline-block;
+  padding: 8px;
+  background-color: #333;
+  margin-right: 5px;
+}
+
+@media (max-width: 600px) {
+  #footer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+body {
   color: white;
   font-family: sans-serif;
 }

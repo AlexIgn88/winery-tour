@@ -17,3 +17,24 @@
 @mixin button-styling-active {
     background-color: $button-active-background-color;
 }
+
+@mixin section-content {
+    margin-top: 100px;
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    height: 100%;
+    width: 50%;
+
+    h1 {
+        font-size: 48px;
+        text-align: center;
+    }
+
+    p {
+        font-size: 20px;
+        line-height: 1.5;
+    }
+}

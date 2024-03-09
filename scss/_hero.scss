@@ -3,41 +3,22 @@
 
 .hero-section {
     height: 100vh;
-    margin: 0px 80px 0px;
+    background-image: url('/img/hero-section/winery.jpg');
+    background-repeat: no-repeat;
+    object-position: center center;
+    background-size: cover;
 
     &__content {
-        margin-top: 50px;
         display: flex;
         align-items: center;
         gap: 5vw;
         height: 70%;
 
         .hero-section__text {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 40px;
-            height: 100%;
-            width: 50%;
-
-            h1 {
-                font-size: 48px;
-            }
-
-            p {
-                font-size: 20px;
-            }
-        }
-
-        .hero-section__picture-container {
-            height: 100%;
-            width: 50%;
-            background-image: url('/img/hero-section/hero-section__picture-wine.jpg');
-            background-repeat: no-repeat;
-            border-radius: 10%;
-            height: 100%;
-            object-position: center center;
-            background-size: cover;
+            background-color: rgba(30, 17, 9, 0.7);
+            border-radius: 15px;
+            padding: 30px;
+            @include section-content;
         }
     }
 
@@ -48,20 +29,37 @@
         flex-direction: row-reverse;
         justify-content: space-between;
 
-        .hero-section__button {
+        #reserve {
             position: fixed;
-            left: 80px;
+            left: 50px;
             bottom: 10px;
             width: 180px;
             height: 70px;
             @include button-styling;
         }
 
-        .hero-section__button:hover {
+        #reserve:hover {
             @include button-styling-hover;
         }
 
-        .hero-section__button:active {
+        #reserve:active {
+            @include button-styling-active;
+        }
+
+        #up-arrow-button {
+            position: fixed;
+            right: 50px;
+            bottom: 10px;
+            width: 50px;
+            height: 50px;
+            @include button-styling;
+        }
+
+        #up-arrow-button:hover {
+            @include button-styling-hover;
+        }
+
+        #up-arrow-button:active {
             @include button-styling-active;
         }
     }
