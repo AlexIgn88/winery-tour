@@ -30,6 +30,7 @@
         justify-content: space-between;
 
         #reserve {
+            display: none;
             position: fixed;
             left: 50px;
             bottom: 10px;
@@ -47,6 +48,7 @@
         }
 
         #up-arrow-button {
+            display: none;
             position: fixed;
             right: 50px;
             bottom: 10px;
