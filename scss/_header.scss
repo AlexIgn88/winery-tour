@@ -4,24 +4,40 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0px 80px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    margin: 0px 50px;
+    padding: 10px 20px 0px; //верх, право и лево, низ
     background-color: $header-color;
+    border-radius: 5px;
 
     &__nav {
-        width: 80%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
     }
 }
 
 .nav {
-    display: flex;
-    align-items: center;
-
     &__list {
         list-style: none;
         display: flex;
         justify-content: space-evenly;
-        flex-grow: 1;
+        align-items: center;
+        width: 80%;
+        font-size: 14px;
+    }
+
+    &__logo {
+        width: 200px;
+        height: 70px;
+
+        .nav__logo-img {
+            background-image: url('/img/GEREY-TYZ-LOGO.jpg');
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100%;
+            object-position: center;
+            background-size: contain;
+        }
     }
 }
