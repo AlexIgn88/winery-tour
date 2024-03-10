@@ -156,7 +156,7 @@
   line-height: 1.5;
 }
 .about-section__content .about-section__picture-container {
-  margin-top: 100px;
+  margin-top: 210px;
   margin-right: 50px;
   background-image: url("/img/about-section/sun-scents.jpg");
   height: 100%;
@@ -167,11 +167,19 @@
   -o-object-position: center center;
      object-position: center center;
   background-size: cover;
+  height: 80%;
 }
 
 .excursions-section {
-  height: 100vh;
+  height: 120vh;
   background-color: #5E2129;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 .excursions-section__content {
   display: -webkit-box;
@@ -181,7 +189,6 @@
       -ms-flex-align: center;
           align-items: center;
   gap: 5vw;
-  height: 70%;
 }
 .excursions-section__content .excursions-section__text {
   margin-top: 100px;
@@ -209,7 +216,7 @@
   line-height: 1.5;
 }
 .excursions-section__content .excursions-section__picture-container {
-  margin-top: 100px;
+  margin-top: 210px;
   margin-right: 50px;
   background-image: url("/img/excursions-section/wine-barrel.jpg");
   height: 100%;
@@ -220,6 +227,7 @@
   -o-object-position: center center;
      object-position: center center;
   background-size: cover;
+  height: 80%;
 }
 
 #footer {
@@ -287,10 +295,9 @@
   }
 }
 .buttons #reserve {
-  display: none;
-  position: fixed;
+  position: relative;
   left: 50px;
-  bottom: 10px;
+  bottom: -30px;
   width: 180px;
   height: 70px;
   font-size: 18px;

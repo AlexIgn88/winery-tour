@@ -4,18 +4,12 @@
 const navigationButtons = (function () {
 
     const upArrowButton = document.getElementById('up-arrow-button');
-    const reserveButton = document.getElementById('reserve');
 
     window.onscroll = function () {
         const isScrolled = document.body.scrollTop > 800 || document.documentElement.scrollTop > 800;
 
-        if (isScrolled) {
-            switchDisplayValue(upArrowButton, "block");
-            switchDisplayValue(reserveButton, "block");
-        } else {
-            switchDisplayValue(upArrowButton, "none");
-            switchDisplayValue(reserveButton, "none");
-        }
+        isScrolled ? switchDisplayValue(upArrowButton, "block") : switchDisplayValue(upArrowButton, "none");
+
     };
 
     upArrowButton.addEventListener('click', () => {

@@ -17,10 +17,11 @@
         }
 
         .about-section__picture-container {
-            margin-top: 100px;
+            margin-top: 210px;
             margin-right: 50px;
             background-image: url('/img/about-section/sun-scents.jpg');
             @include picture-container;
+            height: 80%;
         }
     }
 }

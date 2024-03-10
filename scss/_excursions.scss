@@ -2,14 +2,15 @@
 @import '_mixins';
 
 .excursions-section {
-    height: 100vh;
+    height: 120vh;
     background-color: $background-color;
+    display: flex;
+    flex-direction: column;
 
     &__content {
         display: flex;
         align-items: center;
         gap: 5vw;
-        height: 70%;
 
         .excursions-section__text {
             margin-top: 100px;
@@ -18,10 +19,11 @@
         }
 
         .excursions-section__picture-container {
-            margin-top: 100px;
+            margin-top: 210px;
             margin-right: 50px;
             background-image: url('/img/excursions-section/wine-barrel.jpg');
             @include picture-container;
+            height: 80%;
         }
     }
 }

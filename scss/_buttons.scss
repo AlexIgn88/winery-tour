@@ -1,11 +1,11 @@
 @import '_mixins';
 
 .buttons {
+
     #reserve {
-        display: none;
-        position: fixed;
+        position: relative;
         left: 50px;
-        bottom: 10px;
+        bottom: -30px;
         width: 180px;
         height: 70px;
         @include button-styling;
