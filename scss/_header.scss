@@ -25,17 +25,6 @@
         font-size: 14px;
         font-weight: bold;
         color: white;
-
-        .nav__link {
-            cursor: pointer;
-            text-decoration: none;
-            color: white;
-        }
-
-        .nav__link:hover {
-            color: rgb(175, 119, 36);
-            transition: color 0.5s ease;
-        }
     }
 
     &__logo {
@@ -52,4 +41,15 @@
             background-size: contain;
         }
     }
+}
+
+.nav__link {
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+.nav__link:hover {
+    color: rgb(175, 119, 36);
+    transition: color 0.5s ease;
 }

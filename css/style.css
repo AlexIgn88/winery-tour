@@ -47,16 +47,6 @@
   font-weight: bold;
   color: white;
 }
-.nav__list .nav__link {
-  cursor: pointer;
-  text-decoration: none;
-  color: white;
-}
-.nav__list .nav__link:hover {
-  color: rgb(175, 119, 36);
-  -webkit-transition: color 0.5s ease;
-  transition: color 0.5s ease;
-}
 .nav__logo {
   width: 100px;
   height: 70px;
@@ -70,6 +60,18 @@
   -o-object-position: center;
      object-position: center;
   background-size: contain;
+}
+
+.nav__link {
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+}
+
+.nav__link:hover {
+  color: rgb(175, 119, 36);
+  -webkit-transition: color 0.5s ease;
+  transition: color 0.5s ease;
 }
 
 .hero-section {
@@ -241,9 +243,9 @@
       flex-wrap: wrap;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 .footer__navigation,
@@ -257,6 +259,21 @@
 .footer__social h3 {
   color: #f0f0f0;
   margin-bottom: 15px;
+}
+
+.footer__contact {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+}
+
+.footer__contact a {
+  margin-left: 5px;
 }
 
 .footer__navigation ul,
@@ -283,17 +300,6 @@
   margin-right: 5px;
 }
 
-@media (max-width: 600px) {
-  #footer {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-}
 .buttons #reserve {
   position: relative;
   left: 50px;
