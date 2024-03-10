@@ -8,6 +8,7 @@
     border-radius: 16px;
     box-shadow: 5px 5px 5px #000;
     cursor: pointer;
+    z-index: 3;
 }
 
 @mixin button-styling-hover {
@@ -19,8 +20,6 @@
 }
 
 @mixin section-content {
-    margin-top: 100px;
-    margin-left: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -37,4 +36,14 @@
         font-size: 20px;
         line-height: 1.5;
     }
+}
+
+@mixin picture-container {
+    height: 100%;
+    width: 50%;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    height: 100%;
+    object-position: center center;
+    background-size: cover;
 }

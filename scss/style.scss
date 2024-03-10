@@ -5,10 +5,11 @@
 @import '_about';
 @import '_excursions';
 @import '_footer';
+@import '_buttons';
+@import '_galary';
 
 
 body {
-    // background-color: $background-color;
     color: $body-font-color;
     font-family: sans-serif;
 }

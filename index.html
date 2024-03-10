@@ -18,8 +18,7 @@
             <ul class="nav__list">
                 <li><a class="nav__link" href="#about">О НАС</a></li>
                 <li><a class="nav__link" href="#excursions">ЭКСКУРСИИ И ДЕГУСТАЦИИ</a></li>
-                <li>ГАЛЕРЕЯ</li>
-                <li>ОТЗЫВЫ</li>
+                <li><a class="nav__link" href="#galary">ГАЛЕРЕЯ</a></li>
                 <li>КОНТАКТЫ</li>
             </ul>
         </nav>
@@ -37,10 +36,6 @@
                         сможете оценить вкус и аромат каждого вина, а также узнать о его истории и особенностях.
                     </p>
                 </div>
-            </div>
-            <div class="hero-section__buttons">
-                <button id="reserve">Записаться на экскурсию</button>
-                <button id="up-arrow-button">&uarr;</button>
             </div>
         </div>
 
@@ -86,7 +81,23 @@
                 <div class="excursions-section__picture-container"></div>
             </div>
         </div>
+        <div class="galary-section">
+            <h1><a name="galary">Галерея</a></h1>
+            <div class="galary-section__content">
+                <div class="slider">
+                    <button class="slider__button back">&larr;</button>
+                    <div class="slider__container container">
+                        <img class="container__img" src="img/galary-section/slider/1.jpg" alt="picture">
+                    </div>
+                    <button class="slider__button forward">&rarr;</button>
+                </div>
+            </div>
+        </div>
     </main>
+    <div class="buttons">
+        <button id="reserve">Записаться на экскурсию</button>
+        <button id="up-arrow-button">&uarr;</button>
+    </div>
     <footer id="footer">
         <div class="footer__navigation">
             <h3>Быстрые ссылки</h3>
@@ -111,7 +122,7 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="/js/index.js"></script>
 </body>
 
 </html>
