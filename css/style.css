@@ -415,6 +415,7 @@
   opacity: 0;
 }
 .galary-section__content .slider__button {
+  display: none;
   background-color: rgb(175, 119, 36);
   color: black;
   padding: 5px 10px;

@@ -16,15 +16,23 @@ const navigationButtons = (function () {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
     });
-
-    function switchDisplayValue(elem, value) {
-        elem.style.display = value;
-    }
-
 })();
 
 //слайдер для галереи
 const slider = (function () {
+    const sliderDiv = document.querySelector('.slider');
+    const backArrow = document.querySelector('.back');
+    const forwardArrow = document.querySelector('.forward');
+
+    sliderDiv.addEventListener('mouseover', () => {
+        switchDisplayValue(backArrow, 'block');
+        switchDisplayValue(forwardArrow, 'block');
+    });
+    sliderDiv.addEventListener('mouseout', () => {
+        switchDisplayValue(backArrow, 'none');
+        switchDisplayValue(forwardArrow, 'none');
+    });
+
     const slideImages = [
         "img/galary-section/slider/1.jpg",
         "img/galary-section/slider/2.jpg",
@@ -75,13 +83,17 @@ const slider = (function () {
 
     const slideShow = slider.slideShow();
 
-    document.querySelector('.back').addEventListener('click', () => {
+    backArrow.addEventListener('click', () => {
         clearInterval(slideShow);
         slider.previousSlide();
     });
 
-    document.querySelector('.forward').addEventListener('click', () => {
+    forwardArrow.addEventListener('click', () => {
         clearInterval(slideShow);
         slider.nextSlide();
     });
 })();
+
+function switchDisplayValue(elem, value) {
+    elem.style.display = value;
+}
