@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
@@ -40,7 +40,7 @@
         </div>
 
         <div class="about-section">
-            <h1 class="heading"><a name="about">О нас</a></h1>
+            <h1 class="heading"><a id="about">О нас</a></h1>
             <div class="about-section__content">
                 <div class="about-section__text">
                     <p>Добро пожаловать на семейную винодельню “Ароматы солнца”! Мы - команда профессионалов, влюбленных
@@ -64,7 +64,7 @@
         </div>
 
         <div class="excursions-section">
-            <h1 class="heading"><a name="excursions">Экскурсии и дегустации</a></h1>
+            <h1 class="heading"><a id="excursions">Экскурсии и дегустации</a></h1>
             <div class="excursions-section__content">
                 <div class="excursions-section__text">
                     <p>Экскурсия по винодельне – это увлекательное путешествие в мир создания вина. Вы узнаете об
@@ -82,10 +82,12 @@
                     <div class="excursions-section__img"></div>
                 </div>
             </div>
-            <div class="buttons"><button id="reserve"><a href="#contacts">Записаться на экскурсию</a></button></div>
+            <div class="buttons">
+                <a href="#contacts" id="reserve">Записаться на экскурсию</a>
+            </div>
         </div>
         <div class="galary-section">
-            <h1 class="heading"><a name="galary">Галерея</a></h1>
+            <h1 class="heading"><a id="galary">Галерея</a></h1>
             <div class="galary-section__content">
                 <div class="slider">
                     <button class="slider__button back">&larr;</button>
@@ -96,9 +98,8 @@
                 </div>
             </div>
         </div>
-
         <div class="contacts-section">
-            <h1 class="heading"><a name="contacts">Контакты</a></h1>
+            <h1 class="heading"><a id="contacts">Контакты</a></h1>
             <div class="contacts-section__content">
                 <div class="contacts-section__text">
                     <h3>Связаться с нами можно по телефону или по электронной почте</h3>
@@ -118,25 +119,29 @@
                         <label>
                             <span>Ваше имя:</span>
                             <input type="text" placeholder="Укажите имя" id="form-name" name="form-name" required>
-                            <div class="feedback-form__error" id="form-name-error"></div>
+                            <span class="feedback-form__error" id="form-name-error"></span>
                         </label>
                         <label>
                             Ваш телефон:
                             <input type="text" placeholder="Укажите телефон" id="form-phone" name="form-phone" required>
-                            <div class="feedback-form__error" id="form-phone-error"></div>
+                            <span class="feedback-form__error" id="form-phone-error"></span>
                         </label>
                         <label>
                             Ваше сообщение:
-                            <textarea id="form-textarea" name="form-textarea" rows="5"
-                                cols="33">
+                            <textarea id="form-textarea" name="form-textarea" rows="5" cols="33">
                             </textarea>
                         </label>
                         <button type="submit">Отправить</button>
                     </form>
+                    <div class="modal-window modal-window-hide">
+                        <div class="modal-window__notification notification">
+                            <div class="notification__text"></div>
+                            <button class="notification__close-modal-window">ок</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
     </main>
     <div class="buttons">
         <button id="up-arrow-button">&uarr;</button>

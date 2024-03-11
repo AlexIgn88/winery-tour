@@ -98,39 +98,73 @@ const feedbackFormValidation = (function () {
 
     const
         form = document.querySelector('.feedback-form'),
-
         nameInput = document.getElementById('form-name'),
-        phoneInput = document.getElementById('form-phone'),
+        phoneInput = document.getElementById('form-phone');
 
-        nameError = document.getElementById('form-name-error'),
-        phoneError = document.getElementById('form-phone-error');
+    form.addEventListener('submit', formSend);
 
-    form.addEventListener('submit', validateForm);
+    async function formSend(evt) {
+        evt.preventDefault();
+        if (!validateForm()) return
 
-    function validateForm(event) {
-        event.preventDefault();
-        const isNameValid = validateName();
-        const isPhoneValid = validatePhone();
+        const formData = new FormData(form);
+        form.classList.add('sending');
 
-        if (isNameValid && isPhoneValid) {
-            // toggleModalWindow();
-            alert('Ваше сообщение передано. С Вами свяжется наш менеджер');
+
+        // console.log('отправка формы на сервер');
+        // console.log(formData);
+        const response = await fetch('sendmail.php', {
+            method: 'POST',
+            body: formData
+        });
+        console.log('response', response);
+
+        if (response.ok) {
+            const result = await response.json();
+
+            console.log('result.message', result?.message);
+
+            changeText('В ближайшее время с Вами свяжется менеджер');
+            disableScrolling();
+            toggleModalWindow();
             form.reset();
+            form.classList.remove('sending');
+        } else {
+            console.log('данные не переданы');
+            changeText('Сообщение не передано. Попробуйте, пожалуйста, позже');
+            disableScrolling();
+            toggleModalWindow();
+            form.classList.remove('sending');
         }
     }
 
-    // document.querySelector('.notification__close-modal-window').addEventListener('click', () => toggleModalWindow());
+    function validateForm() {
+        const isNameValid = validateName();
+        const isPhoneValid = validatePhone();
+        return isNameValid && isPhoneValid
+    }
+
+    document.querySelector('.notification__close-modal-window').addEventListener('click', () => {
+        enableScrolling();
+        toggleModalWindow();
+    });
 
     function validateName() {
         const name = nameInput.value.trim();
-        const validName = /^[a-zA-Zа-яА-ЯёЁ]{3,30}$/.test(name);
-        const errorText = 'Имя должно содержать только кириллицу/латиницу и быть от 3 до 30 символов';
+        const validName = /^[a-zA-Zа-яА-ЯёЁ]{2,30}$/.test(name);
+        const errorText = 'Имя должно содержать только кириллицу/латиницу и быть от 2 до 30 символов';
 
-        if (name === '') return showTextForRequiredField(nameInput, nameError)
+        if (name === '') return showTextForRequiredField(nameInput)
 
-        if (!validName)
-            return showError(nameInput, nameError, errorText, validName)
-        else return showValid(nameInput, nameError, validName);
+        if (!validName) {
+            showError(nameInput, errorText);
+            return validName;
+        }
+        else {
+            showValid(nameInput);
+            return validName;
+        }
+
     }
 
     function validatePhone() {
@@ -138,30 +172,36 @@ const feedbackFormValidation = (function () {
         const validPhone = /^\+?\d{10,15}$/.test(phone);
         const errorText = 'Телефон должен содержать от 10 до 15 цифр и может начинаться с плюса';
 
-        if (phone === '') return showTextForRequiredField(phoneInput, phoneError)
+        if (phone === '') return showTextForRequiredField(phoneInput)
 
-        if (!validPhone)
-            return showError(phoneInput, phoneError, errorText, validPhone)
-        else return showValid(phoneInput, phoneError, validPhone);
+        if (!validPhone) {
+            showError(phoneInput, errorText);
+            return validPhone;
+        }
+        else {
+            showValid(phoneInput);
+            return validPhone;
+        }
     }
 
-    //показываю ошибку, если неверно
-    function showError(inputElem, messageErrorElem, errorText, validValue) {
+    function showError(inputElem, errorText) {
+        const messageErrorElem = inputElem.nextElementSibling;
+
         inputElem.classList.add('input-invalid');
         messageErrorElem.textContent = errorText;
-        return validValue;
     }
 
-    //убираю ошибку
-    function showValid(inputElem, messageErrorElem, validValue) {
+    function showValid(inputElem) {
+        const messageErrorElem = inputElem.nextElementSibling;
+
         inputElem.classList.remove('input-invalid');
         messageErrorElem.textContent = '';
-        return validValue;
     }
 
-    //если не использовать атрибут required в html, незаполненное поле подсветится
-    function showTextForRequiredField(inputElem, messageErrorElem) {
+    function showTextForRequiredField(inputElem) {
+        const messageErrorElem = inputElem.nextElementSibling;
         const text = 'Поле обязательно для заполнения';
+
         inputElem.classList.add('input-invalid');
         messageErrorElem.textContent = text;
         return false;
@@ -170,6 +210,19 @@ const feedbackFormValidation = (function () {
     function toggleModalWindow() {
         const modalWindow = document.querySelector('.modal-window');
         modalWindow.classList.toggle('modal-window-hide');
+    }
+
+    function changeText(text) {
+        const textInModalWindowDiv = document.querySelector('.notification__text');
+        textInModalWindowDiv.textContent = text;
+    }
+
+    function disableScrolling() {
+        document.body.style.overflow = "hidden";
+    }
+
+    function enableScrolling() {
+        document.body.style.overflow = "";
     }
 
 })();

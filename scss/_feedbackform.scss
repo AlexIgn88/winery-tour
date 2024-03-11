@@ -7,6 +7,7 @@
 }
 
 .feedback-form {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -18,7 +19,33 @@
     border-radius: 10px;
     box-shadow: 7px -5px 4px 0px rgba(0, 0, 0, 0.3);
     background-color: rgb(175, 119, 36);
+
+
 }
+
+.feedback-form::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/img/spinning-loading.svg');
+    background-repeat: no-repeat;
+    object-position: center center;
+    background-size: contain;
+    z-index: 5;
+    background-color: rgba(51, 51, 51, 0.9);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease 0s;
+}
+
+.sending::after {
+    opacity: 1;
+    visibility: visible;
+}
+
 
 .feedback-form label {
     margin-top: 10px;
@@ -77,28 +104,31 @@ div.modal-window-hide {
 .modal-window {
     position: fixed;
     top: 0px;
+    left: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgb(99, 95, 91, 0.7);
     height: 100vmax;
     width: 100vmax;
+    z-index: 5;
 }
 
 .modal-window__notification {
     position: fixed;
-    top: 150px;
+    top: 15vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 50px;
-    background-color: rgb(219, 187, 118);
+    background-color: rgb(175, 119, 36);
     border-radius: 10px;
     font-weight: bold;
-    height: 70vh;
-    width: 90vw;
+    height: 50vh;
+    width: 80vw;
     font-size: x-large;
+    text-align-last: center;
 }
 
 .notification__close-modal-window {
