@@ -19,7 +19,7 @@
                 <li><a class="nav__link" href="#about">О НАС</a></li>
                 <li><a class="nav__link" href="#excursions">ЭКСКУРСИИ И ДЕГУСТАЦИИ</a></li>
                 <li><a class="nav__link" href="#galary">ГАЛЕРЕЯ</a></li>
-                <li><a class="nav__link" href="#contact">КОНТАКТЫ</a></li>
+                <li><a class="nav__link" href="#contacts">КОНТАКТЫ</a></li>
             </ul>
         </nav>
     </header>
@@ -28,7 +28,7 @@
         <div class="hero-section">
             <div class="hero-section__content">
                 <div class="hero-section__text">
-                    <h1>Винодельня Ароматы солнца</h1>
+                    <h1 class="heading">Винодельня Ароматы солнца</h1>
                     <p>Только у нас вы сможете увидеть все этапы производства вина, начиная от выращивания винограда и
                         заканчивая розливом готового напитка. Наши опытные виноделы с радостью поделятся с вами своими
                         секретами и расскажут о тонкостях создания неповторимых вин.
@@ -40,9 +40,9 @@
         </div>
 
         <div class="about-section">
+            <h1 class="heading"><a name="about">О нас</a></h1>
             <div class="about-section__content">
                 <div class="about-section__text">
-                    <h1><a name="about">О нас</a></h1>
                     <p>Добро пожаловать на семейную винодельню “Ароматы солнца”! Мы - команда профессионалов, влюбленных
                         в свое дело и посвятивших свою жизнь созданию уникальных вин, которые станут украшением вашего
                         стола и незабываемым впечатлением для ваших гостей.
@@ -64,9 +64,9 @@
         </div>
 
         <div class="excursions-section">
+            <h1 class="heading"><a name="excursions">Экскурсии и дегустации</a></h1>
             <div class="excursions-section__content">
                 <div class="excursions-section__text">
-                    <h1><a name="excursions">Экскурсии и дегустации</a></h1>
                     <p>Экскурсия по винодельне – это увлекательное путешествие в мир создания вина. Вы узнаете об
                         истории винодельни, этапах производства и традициях виноделия. Посетите виноградники и
                         познакомитесь с процессом ухода за лозами. Финальным аккордом экскурсии станет дегустация лучших
@@ -78,12 +78,14 @@
                         региона!
                     </p>
                 </div>
-                <div class="excursions-section__picture-container"></div>
+                <div class="excursions-section__picture-container">
+                    <div class="excursions-section__img"></div>
+                </div>
             </div>
-            <div class="buttons"><button id="reserve">Записаться на экскурсию</button></div>
+            <div class="buttons"><button id="reserve"><a href="#contacts">Записаться на экскурсию</a></button></div>
         </div>
         <div class="galary-section">
-            <h1><a name="galary">Галерея</a></h1>
+            <h1 class="heading"><a name="galary">Галерея</a></h1>
             <div class="galary-section__content">
                 <div class="slider">
                     <button class="slider__button back">&larr;</button>
@@ -94,6 +96,47 @@
                 </div>
             </div>
         </div>
+
+        <div class="contacts-section">
+            <h1 class="heading"><a name="contacts">Контакты</a></h1>
+            <div class="contacts-section__content">
+                <div class="contacts-section__text">
+                    <h3>Связаться с нами можно по телефону или по электронной почте</h3>
+                    <ul class="contacts-section__contacts-list">
+                        <li>Email: <a href="mailto:sunwinery@gmail.com">sunwinery@gmail.com</a></li>
+                        <li>Phone: <a href="tel:+79787891085">+7 978-789-10-85</a></li>
+                    </ul>
+                    <h3>Мы в соцсетях</h3>
+                    <div class="contacts-section__social-buttons">
+                        <button class="btn btn-vkontakte">Vkontakte</button>
+                        <button class="btn btn-telegram">Telegram</button>
+                    </div>
+                </div>
+                <div class="contacts-section__form-container">
+                    <form class="feedback-form">
+                        <h3>Запишитесь на экскурсию</h3>
+                        <label>
+                            <span>Ваше имя:</span>
+                            <input type="text" placeholder="Укажите имя" id="form-name" name="form-name" required>
+                            <div class="feedback-form__error" id="form-name-error"></div>
+                        </label>
+                        <label>
+                            Ваш телефон:
+                            <input type="text" placeholder="Укажите телефон" id="form-phone" name="form-phone" required>
+                            <div class="feedback-form__error" id="form-phone-error"></div>
+                        </label>
+                        <label>
+                            Ваше сообщение:
+                            <textarea id="form-textarea" name="form-textarea" rows="5"
+                                cols="33">
+                            </textarea>
+                        </label>
+                        <button type="submit">Отправить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
     </main>
     <div class="buttons">
         <button id="up-arrow-button">&uarr;</button>
@@ -105,18 +148,18 @@
                 <li><a class="nav__link" href="#about">О нас</a></li>
                 <li><a class="nav__link" href="#excursions">Экскурсии</a></li>
                 <li><a class="nav__link" href="#galary">Галерея</a></li>
-                <li><a class="nav__link" href="#contact">Контакты</a></li>
+                <li><a class="nav__link" href="#contacts">Контакты</a></li>
             </ul>
         </div>
-        <div class="footer__contact">
+        <div class="footer__contacts">
             <h3>Контакты</h3>
             <p>Email: <a href="mailto:sunwinery@gmail.com">sunwinery@gmail.com</a></p>
-            <p>Phone: <a href="tel:+7 9787891085">+7 978-789-10-85</a></p>
+            <p>Phone: <a href="tel:+79787891085">+7 978-789-10-85</a></p>
         </div>
         <div class="footer__social">
             <h3>Мы в соцсетях</h3>
             <div class="social-icons">
-                <a href="https://vk.com" target="_blank" class="social-icon">ВК</a>
+                <a href="https://vk.com" target="_blank" class="social-icon">Vkontakte</a>
                 <a href="https://telegram.org" target="_blank" class="social-icon">Telegram</a>
             </div>
         </div>

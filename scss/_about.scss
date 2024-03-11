@@ -2,22 +2,21 @@
 @import '_mixins';
 
 .about-section {
-    height: 150vh;
+    height: 130vh;
     background-color: $background-color;
 
     &__content {
         display: flex;
+        align-items: flex-start;
         gap: 5vw;
         height: 70%;
 
         .about-section__text {
-            margin-top: 100px;
             margin-left: 50px;
             @include section-content;
         }
 
         .about-section__picture-container {
-            margin-top: 210px;
             margin-right: 50px;
             background-image: url('/img/about-section/sun-scents.jpg');
             @include picture-container;

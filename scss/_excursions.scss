@@ -9,21 +9,27 @@
 
     &__content {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         gap: 5vw;
 
         .excursions-section__text {
-            margin-top: 100px;
             margin-left: 50px;
             @include section-content;
         }
 
         .excursions-section__picture-container {
-            margin-top: 210px;
-            margin-right: 50px;
-            background-image: url('/img/excursions-section/wine-barrel.jpg');
-            @include picture-container;
-            height: 80%;
+            width: 50%;
+            height: 100%;
+
+
+            .excursions-section__img {
+                background-image: url('/img/excursions-section/wine-barrel.jpg');
+                @include picture-container;
+                height: 100%;
+                background-size: contain;
+                height: 30vw;
+                width: 30vw;
+            }
         }
     }
 }

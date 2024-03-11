@@ -1,0 +1,107 @@
+@import '_mixins';
+
+.contacts-section__form-container {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.feedback-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    width: 313px;
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 7px -5px 4px 0px rgba(0, 0, 0, 0.3);
+    background-color: rgb(175, 119, 36);
+}
+
+.feedback-form label {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.feedback-form input,
+#form-textarea {
+    margin-top: 5px;
+    padding: 5px;
+    padding-left: 10px;
+    width: 300px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+#form-textarea {
+    resize: none;
+}
+
+.feedback-form .input-invalid {
+    border: 2px solid red;
+}
+
+.feedback-form button,
+.notification__close-modal-window {
+    width: 313px;
+    margin-top: 20px;
+    padding: 10px;
+    @include button-styling;
+}
+
+.feedback-form button:hover,
+.notification__close-modal-window:hover {
+    @include button-styling-hover;
+}
+
+.feedback-form button:active,
+.notification__close-modal-window:active {
+    @include button-styling-active;
+}
+
+.feedback-form__error {
+    color: black;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+div.modal-window-hide {
+    display: none;
+}
+
+.modal-window {
+    position: fixed;
+    top: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(99, 95, 91, 0.7);
+    height: 100vmax;
+    width: 100vmax;
+}
+
+.modal-window__notification {
+    position: fixed;
+    top: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    background-color: rgb(219, 187, 118);
+    border-radius: 10px;
+    font-weight: bold;
+    height: 70vh;
+    width: 90vw;
+    font-size: x-large;
+}
+
+.notification__close-modal-window {
+    width: 30vw;
+    font-size: x-large;
+}

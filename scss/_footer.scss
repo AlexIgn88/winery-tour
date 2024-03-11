@@ -12,25 +12,25 @@
 }
 
 .footer__navigation,
-.footer__contact,
+.footer__contacts,
 .footer__social {
     margin: 10px;
 }
 
 .footer__navigation h3,
-.footer__contact h3,
+.footer__contacts h3,
 .footer__social h3 {
     color: #f0f0f0;
     margin-bottom: 15px;
 }
 
-.footer__contact {
+.footer__contacts {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.footer__contact a {
+.footer__contacts a {
     margin-left: 5px;
 }
 

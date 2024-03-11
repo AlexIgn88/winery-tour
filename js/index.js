@@ -94,6 +94,86 @@ const slider = (function () {
     });
 })();
 
+const feedbackFormValidation = (function () {
+
+    const
+        form = document.querySelector('.feedback-form'),
+
+        nameInput = document.getElementById('form-name'),
+        phoneInput = document.getElementById('form-phone'),
+
+        nameError = document.getElementById('form-name-error'),
+        phoneError = document.getElementById('form-phone-error');
+
+    form.addEventListener('submit', validateForm);
+
+    function validateForm(event) {
+        event.preventDefault();
+        const isNameValid = validateName();
+        const isPhoneValid = validatePhone();
+
+        if (isNameValid && isPhoneValid) {
+            // toggleModalWindow();
+            alert('Ваше сообщение передано. С Вами свяжется наш менеджер');
+            form.reset();
+        }
+    }
+
+    // document.querySelector('.notification__close-modal-window').addEventListener('click', () => toggleModalWindow());
+
+    function validateName() {
+        const name = nameInput.value.trim();
+        const validName = /^[a-zA-Zа-яА-ЯёЁ]{3,30}$/.test(name);
+        const errorText = 'Имя должно содержать только кириллицу/латиницу и быть от 3 до 30 символов';
+
+        if (name === '') return showTextForRequiredField(nameInput, nameError)
+
+        if (!validName)
+            return showError(nameInput, nameError, errorText, validName)
+        else return showValid(nameInput, nameError, validName);
+    }
+
+    function validatePhone() {
+        const phone = phoneInput.value.trim();
+        const validPhone = /^\+?\d{10,15}$/.test(phone);
+        const errorText = 'Телефон должен содержать от 10 до 15 цифр и может начинаться с плюса';
+
+        if (phone === '') return showTextForRequiredField(phoneInput, phoneError)
+
+        if (!validPhone)
+            return showError(phoneInput, phoneError, errorText, validPhone)
+        else return showValid(phoneInput, phoneError, validPhone);
+    }
+
+    //показываю ошибку, если неверно
+    function showError(inputElem, messageErrorElem, errorText, validValue) {
+        inputElem.classList.add('input-invalid');
+        messageErrorElem.textContent = errorText;
+        return validValue;
+    }
+
+    //убираю ошибку
+    function showValid(inputElem, messageErrorElem, validValue) {
+        inputElem.classList.remove('input-invalid');
+        messageErrorElem.textContent = '';
+        return validValue;
+    }
+
+    //если не использовать атрибут required в html, незаполненное поле подсветится
+    function showTextForRequiredField(inputElem, messageErrorElem) {
+        const text = 'Поле обязательно для заполнения';
+        inputElem.classList.add('input-invalid');
+        messageErrorElem.textContent = text;
+        return false;
+    }
+
+    function toggleModalWindow() {
+        const modalWindow = document.querySelector('.modal-window');
+        modalWindow.classList.toggle('modal-window-hide');
+    }
+
+})();
+
 function switchDisplayValue(elem, value) {
     elem.style.display = value;
 }

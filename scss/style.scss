@@ -7,9 +7,16 @@
 @import '_footer';
 @import '_buttons';
 @import '_galary';
+@import '_contacts';
 
 
 body {
     color: $body-font-color;
     font-family: sans-serif;
+}
+
+.heading {
+    padding: 50px;
+    font-size: 48px;
+    text-align: center;
 }

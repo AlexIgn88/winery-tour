@@ -21,6 +21,10 @@
             margin-top: 100px;
             margin-left: 50px;
             @include section-content;
+
+            h1 {
+                padding: 10px;
+            }
         }
     }
 }
