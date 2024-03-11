@@ -72,10 +72,10 @@ const slider = (function () {
             setTimeout(() => {
                 this.sliderImage.setAttribute('src', currentSlideImage);
                 this.sliderImage.classList.remove('fade-out');
-            }, 500);
+            }, 1000);
         }
         slideShow() {
-            return setInterval(() => this.nextSlide(), 5000);
+            return setInterval(() => this.nextSlide(), 6000);
         }
     }
 
