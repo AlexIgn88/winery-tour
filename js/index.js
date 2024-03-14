@@ -96,10 +96,7 @@ const slider = (function () {
 
 const feedbackFormValidation = (function () {
 
-    const
-        form = document.querySelector('.feedback-form'),
-        nameInput = document.getElementById('form-name'),
-        phoneInput = document.getElementById('form-phone');
+    const form = document.querySelector('.feedback-form');
 
     form.addEventListener('submit', formSend);
 
@@ -107,33 +104,54 @@ const feedbackFormValidation = (function () {
         evt.preventDefault();
         if (!validateForm()) return
 
-        const formData = new FormData(form);
         form.classList.add('sending');
-
-
-        // console.log('отправка формы на сервер');
-        // console.log(formData);
-        const response = await fetch('sendmail.php', {
-            method: 'POST',
-            body: formData
+        changeText('');
+        const formData = new FormData(form);
+        const formDataObject = {};
+        formData.forEach((item, i) => {
+            formDataObject[i] = item.trim().replace(/\s+/g, ' ')
         });
-        console.log('response', response);
 
-        if (response.ok) {
-            const result = await response.json();
+        console.log('formDataObject', formDataObject);
 
-            console.log('result.message', result?.message);
+        sendFormData(formDataObject);
+    }
 
-            changeText('В ближайшее время с Вами свяжется менеджер');
+    async function sendFormData(formDataObject) {
+        try {
+            const response = await fetch('http://localhost:5000/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formDataObject),
+            });
+            console.log('response', response);
+
+            switch (true) {
+                case response.ok:
+                    const result = await response.json();
+                    console.log('result.message', result?.message);
+
+                    changeText('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.');
+                    disableScrolling();
+                    toggleModalWindow();
+                    form.reset();
+                    break;
+                case 422 === response.status:
+                    const errors = await response.json();
+                    console.log('errors', errors);
+                    throw new Error('Ошибка валидации данных');
+                default:
+                    throw new Error(response?.statusText);
+            }
+
+        } catch (error) {
+            console.log(error.message);
+            changeText('Сообщение не передано! Попробуйте, пожалуйста, позже');
             disableScrolling();
             toggleModalWindow();
-            form.reset();
-            form.classList.remove('sending');
-        } else {
-            console.log('данные не переданы');
-            changeText('Сообщение не передано. Попробуйте, пожалуйста, позже');
-            disableScrolling();
-            toggleModalWindow();
+        } finally {
             form.classList.remove('sending');
         }
     }
@@ -141,7 +159,7 @@ const feedbackFormValidation = (function () {
     function validateForm() {
         const isNameValid = validateName();
         const isPhoneValid = validatePhone();
-        return isNameValid && isPhoneValid
+        return isNameValid && isPhoneValid;
     }
 
     document.querySelector('.notification__close-modal-window').addEventListener('click', () => {
@@ -150,9 +168,12 @@ const feedbackFormValidation = (function () {
     });
 
     function validateName() {
-        const name = nameInput.value.trim();
-        const validName = /^[a-zA-Zа-яА-ЯёЁ]{2,30}$/.test(name);
-        const errorText = 'Имя должно содержать только кириллицу/латиницу и быть от 2 до 30 символов';
+        const
+            nameInput = document.getElementById('form-name'),
+            name = nameInput.value,
+            nameRegex = /^[a-zA-Zа-яА-ЯёЁ]{2,30}$/,
+            validName = nameRegex.test(name),
+            errorText = 'Имя должно содержать только кириллицу/латиницу и быть от 2 до 30 символов';
 
         if (name === '') return showTextForRequiredField(nameInput)
 
@@ -168,9 +189,12 @@ const feedbackFormValidation = (function () {
     }
 
     function validatePhone() {
-        const phone = phoneInput.value.trim();
-        const validPhone = /^\+?\d{10,15}$/.test(phone);
-        const errorText = 'Телефон должен содержать от 10 до 15 цифр и может начинаться с плюса';
+        const
+            phoneInput = document.getElementById('form-phone'),
+            phone = phoneInput.value,
+            phoneRegex = /^\+?\d{10,15}$/,
+            validPhone = phoneRegex.test(phone),
+            errorText = 'Телефон должен содержать от 10 до 15 цифр и может начинаться с плюса';
 
         if (phone === '') return showTextForRequiredField(phoneInput)
 
