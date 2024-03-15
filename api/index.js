@@ -7,7 +7,7 @@ import { body, validationResult } from 'express-validator';
 
 dotenv.config();
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(cors());
@@ -34,6 +34,7 @@ const validateData = [
         .matches(/^\+?\d{10,15}$/).withMessage('Имя должно содержать только кириллицу/латиницу и быть от 2 до 30 символов'),
 ];
 
+app.get("/", (req, res) => res.send("Express on Vercel"));
 app.post('/send-email', validateData, async (req, res) => {
 
     try {
