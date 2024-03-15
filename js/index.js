@@ -94,6 +94,7 @@ const slider = (function () {
     });
 })();
 
+//Форма обратной связи с валидацией
 const feedbackFormValidation = (function () {
 
     const form = document.querySelector('.feedback-form');
@@ -119,8 +120,7 @@ const feedbackFormValidation = (function () {
 
     async function sendFormData(formDataObject) {
         try {
-            // const response = await fetch('http://localhost:3000/send-email', {
-            const response = await fetch('https://winery-tour.vercel.app:3000/send-email', {
+            const response = await fetch('https://winery-tour.vercel.app/send-email', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -252,6 +252,7 @@ const feedbackFormValidation = (function () {
 
 })();
 
+//Вспомогательная функция
 function switchDisplayValue(elem, value) {
     elem.style.display = value;
 }
