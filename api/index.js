@@ -35,6 +35,7 @@ const validateData = [
 ];
 
 app.get("/", (req, res) => res.send("Express on Vercel"));
+app.options('/', (req, res) => res.send(JSON.stringify({ message: 'Hello World!' })));
 app.post('/send-email', validateData, async (req, res) => {
 
     try {

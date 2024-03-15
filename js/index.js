@@ -113,7 +113,7 @@ const feedbackFormValidation = (function () {
             formDataObject[i] = item.trim().replace(/\s+/g, ' ')
         });
 
-        console.log('formDataObject', formDataObject);
+        // console.log('formDataObject', formDataObject);
 
         sendFormData(formDataObject);
     }
@@ -127,12 +127,13 @@ const feedbackFormValidation = (function () {
                 },
                 body: JSON.stringify(formDataObject),
             });
-            console.log('response', response);
+            // console.log('response', response);
 
             switch (true) {
                 case response.ok:
                     const result = await response.json();
-                    console.log('result.message', result?.message);
+
+                    // console.log('result.message', result?.message);
 
                     changeText('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.');
                     disableScrolling();
@@ -148,7 +149,7 @@ const feedbackFormValidation = (function () {
             }
 
         } catch (error) {
-            console.log(error.message);
+            // console.log(error.message);
             changeText('Сообщение не передано! Попробуйте, пожалуйста, позже');
             disableScrolling();
             toggleModalWindow();
