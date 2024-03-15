@@ -120,7 +120,7 @@ const feedbackFormValidation = (function () {
     async function sendFormData(formDataObject) {
         try {
             // const response = await fetch('http://localhost:5000/send-email', {
-            const response = await fetch('http://winery-tour.vercel.app:5000/send-email', {
+            const response = await fetch('https://winery-tour.vercel.app:5000/send-email', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
