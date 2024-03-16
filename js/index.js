@@ -97,7 +97,17 @@ const slider = (function () {
 //Форма обратной связи с валидацией
 const feedbackFormValidation = (function () {
 
-    const form = document.querySelector('.feedback-form');
+    const
+        form = document.querySelector('.feedback-form'),
+        inputName = document.getElementById('form-name'),
+        inputPhone = document.getElementById('form-phone'),
+
+        regexName = /^[a-zA-Zа-яА-ЯёЁ]{2,30}$/,
+        regexPhone = /^\+?\d{10,15}$/,
+
+        errorName = 'Имя должно содержать только кириллицу/латиницу и быть от 2 до 30 символов',
+        errorPhone = 'Телефон должен содержать от 10 до 15 цифр и может начинаться с плюса';
+
 
     form.addEventListener('submit', formSend);
 
@@ -159,8 +169,8 @@ const feedbackFormValidation = (function () {
     }
 
     function validateForm() {
-        const isNameValid = validateName();
-        const isPhoneValid = validatePhone();
+        const isNameValid = validateInputValue(inputName, regexName, errorName);
+        const isPhoneValid = validateInputValue(inputPhone, regexPhone, errorPhone);
         return isNameValid && isPhoneValid;
     }
 
@@ -169,44 +179,20 @@ const feedbackFormValidation = (function () {
         toggleModalWindow();
     });
 
-    function validateName() {
+    function validateInputValue(input, regex, errorText) {
         const
-            nameInput = document.getElementById('form-name'),
-            name = nameInput.value,
-            nameRegex = /^[a-zA-Zа-яА-ЯёЁ]{2,30}$/,
-            validName = nameRegex.test(name),
-            errorText = 'Имя должно содержать только кириллицу/латиницу и быть от 2 до 30 символов';
+            inputValue = input.value,
+            isValueValid = regex.test(inputValue);
 
-        if (name === '') return showTextForRequiredField(nameInput)
+        if ('' === inputValue) return showTextForRequiredField(input)
 
-        if (!validName) {
-            showError(nameInput, errorText);
-            return validName;
+        if (!isValueValid) {
+            showError(input, errorText);
+            return isValueValid;
         }
         else {
-            showValid(nameInput);
-            return validName;
-        }
-
-    }
-
-    function validatePhone() {
-        const
-            phoneInput = document.getElementById('form-phone'),
-            phone = phoneInput.value,
-            phoneRegex = /^\+?\d{10,15}$/,
-            validPhone = phoneRegex.test(phone),
-            errorText = 'Телефон должен содержать от 10 до 15 цифр и может начинаться с плюса';
-
-        if (phone === '') return showTextForRequiredField(phoneInput)
-
-        if (!validPhone) {
-            showError(phoneInput, errorText);
-            return validPhone;
-        }
-        else {
-            showValid(phoneInput);
-            return validPhone;
+            showValid(input);
+            return isValueValid;
         }
     }
 
